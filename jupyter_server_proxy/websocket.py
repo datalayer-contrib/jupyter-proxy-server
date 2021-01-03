@@ -98,6 +98,10 @@ class WebSocketHandlerMixin(websocket.WebSocketHandler):
         else:
             await maybe_future(super().get(*args, **kwargs))
 
+    def check_origin(self, origin: str) -> bool:
+        return True
+
+
 
 def setup_handlers(web_app):
     host_pattern = '.*$'
